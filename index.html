@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Deal Desk</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="lock" class="lock">
+  <form id="lockForm" class="lock-card" autocomplete="off">
+    <div class="lock-mark">PPR</div>
+    <h1>Deal Desk</h1>
+    <p class="muted">Private. Enter the password to open.</p>
+    <input id="pw" type="password" placeholder="Password" autocomplete="current-password" required>
+    <label class="check"><input id="remember" type="checkbox"> Keep me signed in on this device</label>
+    <button type="submit" id="unlockBtn">Open</button>
+    <p id="lockMsg" class="lock-msg" role="alert"></p>
+  </form>
+</div>
+
+<div id="app" class="app" hidden>
+  <header class="top">
+    <div class="brand"><span class="mark">PPR</span><span class="title">Deal Desk</span></div>
+    <nav class="views" role="tablist">
+      <button class="view on" data-view="board" role="tab">Board</button>
+      <button class="view" data-view="checks" role="tab">Checks <span class="pill" id="checksCount"></span></button>
+    </nav>
+    <div class="top-right">
+      <span class="snap" id="snap"></span>
+      <button class="ghost" id="trayBtn">Decisions <span class="pill" id="trayCount">0</span></button>
+      <button class="ghost" id="lockBtn" title="Lock">Lock</button>
+    </div>
+  </header>
+
+  <section class="summary" id="summary"></section>
+
+  <section class="filters">
+    <input id="q" type="search" placeholder="Search a business, person or email   ( / )" aria-label="Search">
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <main id="board" class="board" aria-live="polite"></main>
+  <main id="checks" class="checks" hidden></main>
+</div>
+
+<aside id="drawer" class="drawer" hidden aria-modal="true" role="dialog">
+  <div class="drawer-inner" id="drawerInner"></div>
+</aside>
+<div id="scrim" class="scrim" hidden></div>
+
+<aside id="tray" class="tray" hidden role="dialog" aria-label="Decisions">
+  <div class="tray-head"><h2>Your decisions</h2><button class="x" id="trayClose" aria-label="Close">×</button></div>
+  <p class="muted small">Decisions stay on this device until you send them to the team.</p>
+  <div id="trayList" class="tray-list"></div>
+  <div class="tray-actions">
+    <button id="trayCopy">Copy</button>
+    <button id="trayWa">WhatsApp</button>
+    <button id="trayMail">Email</button>
+    <button id="trayDownload" class="ghost">Download</button>
+    <button id="trayClear" class="ghost danger">Clear</button>
+  </div>
+</aside>
+
+<div id="toast" class="toast" hidden></div>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Only the encrypted bundle may be committed. Never add plain data or secrets.
+*.plain.json
+raw/
+secret/
+*.txt
+!robots.txt
